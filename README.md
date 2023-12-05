@@ -56,10 +56,19 @@ weighted avg       0.96      0.96      0.96      1600
 * Naive Bayes
 
 ```
+Classification Report for Naive Bayes Classifier: 
 
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97       761
+           1       0.98      0.97      0.97       839
+
+    accuracy                           0.97      1600
+   macro avg       0.97      0.97      0.97      1600
+weighted avg       0.97      0.97      0.97      1600
 ```
 
-![Image 3](./plots/Logistic_Regression_cm.png)
+![Image 3](./plots/Naive_Bayes_cm.png)
 *Above chart shows the confusion matrix for Naive Bayes*
 
 

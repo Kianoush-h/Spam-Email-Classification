@@ -177,7 +177,7 @@ y_pred = model.predict(X_test)
 def eval(name, y_test, y_pred):
     cm = confusion_matrix(y_test, y_pred)
     t1 = ConfusionMatrixDisplay(cm)
-    print('Classification Report for Random Forest Classifier: \n')
+    print('Classification Report for Naive Bayes Classifier: \n')
     print(classification_report(y_test, y_pred))
     t1.plot()
 eval('Classification Report', y_test, y_pred)

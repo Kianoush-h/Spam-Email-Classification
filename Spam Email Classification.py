@@ -82,7 +82,9 @@ def clean_text(text):
 # nltk.download('omw-1.4')
 
 
-
+# data is too large
+# Taking less examples as we will be out of memory if we use all 80k examples of tha dataset
+df = df.sample(8000)
 
 
 df['email'] = df['text'].apply(clean_text)
@@ -97,9 +99,8 @@ head = df.head()
 # Model Building
 # =============================================================================
 
-#Taking less examples as we will be out of memory if we use all 80k examples of tha dataset
-pos = df[df['label'] == 1].sample(5000)
-neg = df[df['label'] == 0].sample(5000)
+pos = df[df['label'] == 1]
+neg = df[df['label'] == 0]
 
 # Concat pos and neg label
 df = pd.concat([pos,neg],axis=0)
@@ -114,6 +115,14 @@ vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(X).toarray()
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+
+
+
+
+
+
 
 
 

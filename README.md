@@ -37,13 +37,30 @@ weighted avg       0.97      0.97      0.97      1600
 * Random Forest
 
 ```
+Classification Report for Random Forest Classifier: 
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.95      0.96       761
+           1       0.96      0.97      0.97       839
+
+    accuracy                           0.96      1600
+   macro avg       0.96      0.96      0.96      1600
+weighted avg       0.96      0.96      0.96      1600
+```
+
+![Image 3](./plots/Random_Forest_cm.png)
+*Above chart shows the confusion matrix for Random Forest*
+
+
+* Naive Bayes
+
+```
 
 ```
 
 ![Image 3](./plots/Logistic_Regression_cm.png)
-*Above chart shows the confusion matrix for Random Forest*
-
-
+*Above chart shows the confusion matrix for Naive Bayes*
 
 
 

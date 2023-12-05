@@ -219,11 +219,27 @@ embedding = "https://tfhub.dev/google/nnlm-en-dim50/2"
 hub_layer = hub.KerasLayer(embedding, dtype=tf.string, trainable=True)
 
 
+hub_layer(list(train_data)[0][0])
 
 
 
+# Creating model
+model = tf.keras.Sequential()
+model.add(hub_layer)
+model.add(tf.keras.layers.Dense(16, activation='relu'))
+model.add(tf.keras.layers.Dropout(0.4))
+model.add(tf.keras.layers.Dense(16, activation='relu'))
+model.add(tf.keras.layers.Dropout(0.4))
+model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 
 
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+              loss=tf.keras.losses.BinaryCrossentropy(),
+              metrics=['accuracy'])
+
+
+
+model.evaluate(train_data)
 
 
 

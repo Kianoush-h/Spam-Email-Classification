@@ -65,28 +65,55 @@ plt.show()
 
 
 
+def clean_text(text):
+    punc = list(punctuation)
+    stop = stopwords.words('english')
+    bad_tokens = punc + stop
+    lemma = WordNetLemmatizer()
+    tokens = word_tokenize(text)
+    word_tokens = [t for t in tokens if t.isalpha()]
+    clean_tokens = [lemma.lemmatize(t.lower()) for t in word_tokens if t not in bad_tokens]
+    return ' '.join(clean_tokens)
+
+
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+
+
+
+
+
+df['email'] = df['text'].apply(clean_text)
+head = df.head()
 
 
 
 
 
 
+# =============================================================================
+# Model Building
+# =============================================================================
+
+#Taking less examples as we will be out of memory if we use all 80k examples of tha dataset
+pos = df[df['label'] == 1].sample(5000)
+neg = df[df['label'] == 0].sample(5000)
+
+# Concat pos and neg label
+df = pd.concat([pos,neg],axis=0)
+print(f"new shape is: {df.shape}")
 
 
+X = df['email']
+y = df['label']
 
 
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(X).toarray()
 
-
-
-
-
-
-
-
-
-
-
-
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
 

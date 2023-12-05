@@ -73,7 +73,8 @@ weighted avg       0.97      0.97      0.97      1600
 
 
 
-* NN
+* Neural Network Model
+
  ```Python
 model.add(tf.keras.layers.Dense(16, activation='relu'))
 model.add(tf.keras.layers.Dropout(0.4))

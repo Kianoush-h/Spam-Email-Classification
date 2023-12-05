@@ -119,6 +119,24 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 
 
+# =============================================================================
+# PART 1: Logistic Regression
+# =============================================================================
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+#Defining a function to visualize model results
+def eval(name, y_test, y_pred):
+    cm = confusion_matrix(y_test, y_pred)
+    t1 = ConfusionMatrixDisplay(cm)
+    print('Classification Report for Logistic Regression: \n')
+    print(classification_report(y_test, y_pred))
+    t1.plot()
+eval('Classification Report', y_test, y_pred)
+
 
 
 

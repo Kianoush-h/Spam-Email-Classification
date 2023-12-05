@@ -34,11 +34,14 @@ weighted avg       0.97      0.97      0.97      1600
 ![Image 2](./plots/Logistic_Regression_cm.png)
 *Above chart shows the confusion matrix for Logistic Regression*
 
-* TF-IDF Vectorizer
-* Support Vector Machine
+* Random Forest
 
+```
 
+```
 
+![Image 3](./plots/Logistic_Regression_cm.png)
+*Above chart shows the confusion matrix for Random Forest*
 
 
 

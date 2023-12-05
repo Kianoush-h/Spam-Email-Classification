@@ -11,7 +11,7 @@ This project was made during the Compozent internship in Machine Learning and Ar
 
 ### You need to download these first for NLTK
 
-'''Python
+'''
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('wordnet')

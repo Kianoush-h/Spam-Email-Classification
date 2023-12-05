@@ -242,19 +242,31 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
 model.evaluate(train_data)
 
 
+history = model.fit(train_data, epochs=5, validation_data=valid_data)
+
+
+model.evaluate(test_data)
+
+
+
+plt.plot(history.history['accuracy'], label='Training Accuracy')
+plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+plt.title('Accuracy of the Model')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.show()
 
 
 
 
-
-
-
-
-
-
-
-
-
+plt.plot(history.history['loss'], label='Training Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.title('Loss of the Model')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
 
 
 

@@ -51,10 +51,17 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 df = pd.read_csv('data/combined_data.csv')
 head = df.head()
 
+print(f"shape is : {df.shape}")
+df.info()
 
 
+# =============================================================================
+# Data Cleaning and EDA
+# =============================================================================
 
 
+sns.countplot(x=df['label'])
+plt.show()
 
 
 

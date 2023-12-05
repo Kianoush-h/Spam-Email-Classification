@@ -12,8 +12,8 @@ This project was made during the Compozent internship in Machine Learning and Ar
 ## Visualizition Analysis
 
 
-![Image 1](./plots/geo_map.png)
-*Above map shows the location of purchased product orders and according to the distribution of populations, it explains the highest shopping rate on the east coast.*
+![Image 1](./plots/label_dist.png)
+*Above chart shows the labels distributions.*
 
 
 

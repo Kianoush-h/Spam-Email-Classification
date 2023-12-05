@@ -37,7 +37,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score,confusion_matrix,precision_score,recall_score, ConfusionMatrixDisplay, classification_report
 
 import tensorflow as tf
-# import tensorflow_hub as hub
+import tensorflow_hub as hub
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense,LSTM,Dropout,Embedding,Bidirectional
@@ -190,6 +190,44 @@ eval('Classification Report', y_test, y_pred)
 # =============================================================================
 # PART 4: Building a Neural Network for Classification
 # =============================================================================
+
+
+df = df[['text', 'label']]
+head = df.head()
+
+
+train, val, test = np.split(df.sample(frac=1), [int(0.8*len(df)), int(0.9*len(df))])
+
+
+def df_to_dataset(dataframe, shuffle=True, batch_size=1024):
+  df = dataframe.copy()
+  labels = df.pop('label')
+  df = df["text"]
+  ds = tf.data.Dataset.from_tensor_slices((df, labels))
+  if shuffle:
+    ds = ds.shuffle(buffer_size=len(dataframe))
+  ds = ds.batch(batch_size)
+  ds = ds.prefetch(tf.data.AUTOTUNE)
+  return ds
+
+train_data = df_to_dataset(train)
+valid_data = df_to_dataset(val)
+test_data = df_to_dataset(test)
+
+
+embedding = "https://tfhub.dev/google/nnlm-en-dim50/2"
+hub_layer = hub.KerasLayer(embedding, dtype=tf.string, trainable=True)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
